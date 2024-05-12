@@ -1,0 +1,8 @@
+Sistemas Baseados em Agentes 
+
+Entidades autônomas chamadas Agentes interagem para alcançar objetivos comuns. 
+	Conceito de Agentes: são entidades computacionais autônomas que têm capacidade de perceber o ambiente, tomar decisões e agir de acordo com seus objetivos e o contexto em que estão inseridos; são caracterizados por sua capacidade de autonomia, reatividade, proatividade e habilidade de aprendizado. 
+	Autonomia dos Agentes: capacidade de agir independentemente, sem intervenção direta de usuários ou outros agentes, podendo perceber o ambiente por meio de sensores, analisar informações, tomar decisões com base em seus objetivos e executar ações para alcançar esses objetivos. 
+	Comunicação entre Agentes: Os agentes podem se comunicar uns com os outros por meio de mensagens ou protocolos de comunicação específicos; a comunicação entre agentes pode ser síncrona ou assíncrona, dependendo dos requisitos da aplicação e do contexto em que os agentes estão operando. 
+	Tipos de agentes: agentes reativos (que respondem a estímulos do ambiente); agentes cognitivos (que têm capacidade de aprendizado e raciocínio) e agentes sociais (que interagem e colaboram com outros agentes).  
+	Aplicações: Inteligência Artificial, robótica, sistemas de informação, automação industrial, jogos, simulação. Úteis em cenários onde é necessário lidar com complexidade, incerteza e dinamicidade, pois permitem uma abordagem descentralizada e adaptativa para resolver problemas.
