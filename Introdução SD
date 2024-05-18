@@ -1,0 +1,12 @@
+Introdução (definição, objetivos, tipos)
+Definição: grupo de computadores independentes, apresentados como um só sistema para o usuário. Então, por mais que
+	Vantagens: Escalabilidade e compartilhamento dos recursos.
+
+	Objetivos/ metas: 
+Acesso a recursos: facilitar acesso e compartilhamento dos recursos aos usuários de maneira eficiente. Com isso, economizamos dinheiro e facilitamos a troca de informações.
+O que é um recurso, afinal? Impressoras, PCs, Pgs web, redes, facilidades de armazenamento.
+			Groupware: software colaborativo
+
+Transparência: se apresenta para o usuário como apenas um. Então, de forma oculta, o sistema distribuído se mostra único, mesmo que seus processos estejam separados por vários computadores
+Transparência de acesso, localização, migração, relocação, replicação, concorrência, falha
+Abertura: Um SD aberto oferece serviços apenas de acordo com as regras padrões (protocolos).  Em redes, por ex, temos regras para formato, significado da troca de mensagens, e conteúdo. Em SDs no geral, temos a Interface Definition Languade – IDL, que costumam descrever as interfaces. Essas interfaces são responsáveis pela especificação dos serviços.
