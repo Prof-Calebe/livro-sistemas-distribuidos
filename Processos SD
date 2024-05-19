@@ -1,0 +1,40 @@
+Processos
+
+Objetivo: apresentar os diferentes processos e seus papéis em SD
+
+Obs: O que é um processo?
+	Um processo é um programa em execução. Em outras palavras, um programa sendo executado em um dos processadores virtuais do SO naquele momento.
+
+Threads
+
+Para executar um programa, um SO cria vários processadores, cada um para uma execução de programa diferente.
+
+Pra monitorar esses processadores virtuais, o SO tem uma tabla de processos (processo = programa em execução), com entradas para guardar valores da CPU, mapas de memória, arquivos abertos, informações de contabilidade, privilégios, etc.
+
+Threads e processos são formas de fazer mais coisas ao mesmo tempo
+
+
+O desempenho multithread não necessariamente é pior que o monothread. Na verdade, o multithreading ganha em desempenho no geral
+Threads não são automaticamente protegidas umas das outras, então uma implementação multithread requer intelecto adicional 
+
+
+Virtualização
+
+Threads e processos nos permitem construir programas que parecem ser executados ao mesmo tempo. Se temos um computador de um processador, realmente é uma instrução por vez. Aí, o chaveamento rápido entre threads e processos que dá a ilusão de paralelismo.
+
+Então, aí entra a virtualização de recursos: temos uma CPU só, apesar de se dar a ilusão de múltiplas ações simultâneas. Isso pode ser feito para outros recursos também.
+
+Todo SD tem sua interface de alto nível
+
+Programa - Interface X - Hardware/Software sistema X
+
+
+Resumo
+
+Processos desempenham um papel fundamental para formar uma base de comunicação entre diferentes bases. É importante entender a organização interna dos processos, e se suportam vários threads de controle ou não.
+
+"A organização de uma aplicação distribuída em termos de clientes e servidores se mostrou útil". O software cliente foca em transparência de distribuição, ocultando detalhes de comunicação e localização dos servidores. Também oculta questões de falhas
+
+Servidores podem envolver um ou mais serviços. Geralmente são mais complicados do que clientes. Podem ser iterativos (uma conexão por vez) ou concorrentes (várias por vez)
+
+Ref - Sistemas Distribuídos - Princípios e Paradigmas (2a edição). Andrew S. Tanenbaum, Maarten Van Steen
