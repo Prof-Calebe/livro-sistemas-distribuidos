@@ -1,0 +1,54 @@
+# Lucas Forge Freo – 22.121.081-8
+
+## Tópicos abordados - 3.4 Servidores e 3.4.2 Clusters
+
+### Servidores
+
+Um servidor é um processo que fornece um serviço para um conjunto de clientes, esperando e atendendo suas requisições sequencialmente. Existem diferentes modos de organizar servidores:
+
+- **Iterativo**: O servidor manipula diretamente as requisições.
+- **Concorrente**: As requisições são passadas para threads separados ou processos, podendo bifurcar um novo processo para cada requisição. Essas abordagens são comuns em sistemas Unix.
+- **Multithread**: Múltiplos threads são usados para lidar com requisições simultaneamente.
+
+Os servidores se comunicam em portas específicas, atribuídas pela Internet Assigned Numbers Authority (IANA). Por exemplo:
+
+- **FTP**: porta TCP 21.
+- **HTTP**: porta TCP 80.
+
+Para serviços que não têm portas predefinidas, como um servidor de hora, a porta é dinamicamente atribuída pelo sistema operacional. Em alguns casos, um daemon especial é utilizado para monitorar as portas dos serviços e fornecer essas informações aos clientes. O daemon monitora a porta corrente de cada serviço implementado por um servidor colocalizado. O próprio daemon ouve uma porta bem conhecida, e um cliente primeiro contatará o daemon.
+
+Além disso, é possível implementar múltiplos servidores para diferentes serviços versus um único serviço, chamado de "superservidor", para gerenciar todas as solicitações. Essa abordagem pode ser mais eficiente do que manter vários servidores passivos. É importante considerar como interromper um servidor, por exemplo, um usuário que deseja interromper a transferência de um arquivo em um servidor FTP. Neste caso, ele citará a porta e então contatará o servidor específico.
+
+Para resolver as interrupções de comunicação entre cliente e servidor, podem ser utilizadas as seguintes medidas:
+
+- Desconectar o usuário do cliente e reiniciar a conexão.
+- Permitir o envio de dados "fora da banda", ou seja, dados que o servidor processa antes dos dados regulares do cliente. Isso pode ser feito através de uma porta de controle separada no servidor, onde o cliente envia esses dados.
+
+### Servidores com Estado
+
+Uma consideração importante é se o servidor é "sem estado", ou seja, não mantém informações sobre o estado dos clientes, o que é comum em servidores web, podendo gerenciar conjuntos de arquivos sem a necessidade de informar os clientes sobre as mudanças. Embora esses servidores possam manter informações sobre os clientes, a perda desses dados não é preocupante.
+
+Outro modelo é o estado flexível, onde o servidor mantém informações por um tempo limitado em nome do cliente. Por outro lado, os servidores com estado mantêm informações persistentes sobre os clientes, o que pode melhorar o desempenho percebido, mas também apresenta o risco de perda de dados em caso de falha. O estado pode ser definido em dois tipos:
+
+- **Temporário (de sessão)**: Associado a operações de curto prazo por um único usuário.
+- **Permanente**: Geralmente é mantido em bancos de dados, o estado de sessão pode ser simplificado, permitindo armazenamento menos confiável.
+
+Um servidor sem estado pode simular operações de abertura, leitura e escrita de arquivos. Em alguns casos, os servidores podem querer manter registros do comportamento do cliente para atendê-lo de forma mais eficaz, um exemplo comum são servidores web que direcionam clientes para suas páginas favoritas com base no histórico e cookies aceitos.
+
+### Cookies
+
+Cookies são pequenas informações que o servidor envia ao navegador, que as guarda com segurança. O navegador transmite o cookie com a solicitação quando o cliente faz outra conexão com o servidor.
+
+### Clusters de Servidores
+
+Um grupo de computadores conectados por uma rede local, com alta largura de banda e baixa latência, é chamado de cluster de servidores. Três camadas compõem a organização desses clusters:
+
+1. **Switch Lógico**: Na primeira camada direciona as solicitações dos clientes para os servidores do cluster.
+2. **Servidores**: Tratam dessas solicitações e constituem a segunda camada. Eles podem ser qualquer coisa, desde servidores web que roteiam parte das solicitações para servidores de aplicativos até switches de transporte TCP.
+3. **Servidores de Processamento de Aplicativos**: Podem empregar hardware de alto desempenho ou tecnologia comparativamente modesta, dependendo das demandas de computação e armazenamento.
+
+Uma desvantagem dos clusters de servidores é a dependência da disponibilidade de hardware e software, além de sua administração dividida. Isso pode resultar em cenários em que algumas máquinas estão ociosas e outras sobrecarregadas. 
+
+O switch, camada inicial do cluster, é feito para ocultar a existência de diversos servidores e oferecer acesso transparente através de um único ponto de entrada. Esse switch possui um único endereço de rede e muitos pontos de acesso com máquinas separadas podem estar presentes para fins de escalabilidade e disponibilidade.
+
+As solicitações de aplicativos são emitidas como parte de uma sessão que termina com o fechamento da conexão quando o acesso ao cluster normalmente é obtido por meio de uma conexão TCP. As solicitações de conexões TCP são aceitas pelo switch, que então as encaminha para o melhor servidor. Para preservar a abertura e continuidade do protocolo TCP, o switch transmite a solicitação ao servidor escolhido, que então utiliza o endereço IP do switch para responder ao cliente. Este procedimento é conhecido como transferência TCP.
