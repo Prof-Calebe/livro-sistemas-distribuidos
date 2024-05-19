@@ -2,7 +2,7 @@
 
 **Definição:** “Conjunto de sistemas computacionais que realizam algum tipo de comunicação o qual o usuário não consegue ver”
 
-**Metas e desafios de SD**
+**Metas e desafios de Sistemas Distribuídos**
 
 Facilidade de uso, Transparência, Heterogeneidade, Concorrência e Sincronização de processos, Abertura, Segurança, Escalabilidade e Transparência
 
@@ -38,13 +38,9 @@ R: através de protocolos de comunicação, mensagens síncronas e assíncronas 
 
 - Regra de comunicação, ambos os lados precisam ter para se comunicar
 
-![](Aspose.Words.53652099-0f25-49b4-bdd5-ebc470560d9c.001.png)
+![image](https://github.com/FelipeOka/livro-sistemas-distribuidos/assets/92650933/28eba2c0-a6c9-4794-82dd-8fb11339c074)
 
-Cliente - Servidor: Arquitetura Centralizada (AC) → Vulnerável
-
-`					`Vs
-
-Melhor alternativa: Arquitetura Híbrida / Distribuída (AD)
+Cliente - Servidor: Arquitetura Centralizada (AC) → Vulnerável Vs Melhor alternativa: Arquitetura Híbrida / Distribuída (AD)
 
 **Pergunta: “Quantos processo temos numa arquitetura centralizada cliente-servidor?**
 
@@ -79,10 +75,10 @@ para isto:
 - Alta escalabilidade, distribuição de carga 
 - Arquitetura Híbrida ou Descentralizada
 
-**Comunicação: 					Mensagem**
+**Comunicação:**
 
-- Ponto-a-Ponto:				- Bufferizada / Não Bufferizada
-- Comunicação Coletiva			- Bloqueante / Não Bloqueante
+- Ponto-a-Ponto:				   
+- Comunicação Coletiva		
 
 **Mensagem:** 
 
@@ -104,9 +100,7 @@ para isto:
 
 **R:** Todos os outros processos irão esperar todos os demais terminarem de receber a mensagem e o P0 terminar os envios para que possa continuar o resto das instruções do processo.
 
-![](Aspose.Words.53652099-0f25-49b4-bdd5-ebc470560d9c.002.jpeg)		**OU**	    ![](Aspose.Words.53652099-0f25-49b4-bdd5-ebc470560d9c.003.jpeg)
-
-`	   	`figura 1						      figura 2
+![image](https://github.com/FelipeOka/livro-sistemas-distribuidos/assets/92650933/033ed137-1361-4720-a535-d9fd10e4f29c) ![image](https://github.com/FelipeOka/livro-sistemas-distribuidos/assets/92650933/99a8456c-3807-470e-aa5f-23cf0b1df40b)
 
 Na figura 1, nota-se que é visível a ordem dos processos, partindo do Processo 0, até o 6°, resultando em 6 tempos.
 
@@ -118,11 +112,11 @@ Note, que na figura 2, é possível alcançar 8 processos, em apenas 3 unidades 
 
 **MPI Scatter:** distribuição da informação entre todos os processos participantes do grupo
 
-![](Aspose.Words.53652099-0f25-49b4-bdd5-ebc470560d9c.004.png)
+![image](https://github.com/FelipeOka/livro-sistemas-distribuidos/assets/92650933/56843eb4-0c17-4141-9623-a4b1becd7784)
 
 **MPI Gather:** inverso do Scatter, este recebe a informação dos processos
 
-![](Aspose.Words.53652099-0f25-49b4-bdd5-ebc470560d9c.005.png)
+![image](https://github.com/FelipeOka/livro-sistemas-distribuidos/assets/92650933/f2cbab16-d5a9-4bd6-8278-ee06feddd63c)
 
 **MPI Reduce:** realiza a redução de um espaço com vários processos a um espaço único para melhor entendimento dos dados
 
@@ -165,9 +159,7 @@ A Sincronização do relógio não precisa ser absoluta
 - Ordem dos eventos 
 - Em suma: dizer qual evento ocorreu primeiro
 
-![](Aspose.Words.53652099-0f25-49b4-bdd5-ebc470560d9c.006.png)
-
-
+![image](https://github.com/FelipeOka/livro-sistemas-distribuidos/assets/92650933/ea68ede7-c12a-4d60-b5bb-e7f9eff60cf2)
 
 **Relógios Físicos:**
 
@@ -176,7 +168,7 @@ A Sincronização do relógio não precisa ser absoluta
 
 **Algoritmo de Berkeley**
 
-![](Aspose.Words.53652099-0f25-49b4-bdd5-ebc470560d9c.007.png)
+![image](https://github.com/FelipeOka/livro-sistemas-distribuidos/assets/92650933/a0687a01-932b-4c0c-9752-0c0a6a8f164c)
 
 1. Primário pergunta que horas são e verifica a hora
 1. Secundário 1 e Secundário 2 respondem com o valor do relógio e é calculada a diferença entre ambos 
@@ -197,7 +189,7 @@ Para determinar a posição de um dispositivo, o GPS usa sinais de sinais de sat
 
 **Nunca mais voltar no tempo:** se está sincronizado e funcional, não se deve fazer grandes alterações no relógio para evitar a dessincronização.
 
-**Perguntas**
+**Perguntas:**
 
 Qual é o impacto da falta de sincronização precisa de tempo em uma rede de computadores?
 
