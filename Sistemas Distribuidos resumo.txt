@@ -1,0 +1,32 @@
+Um sistema distribuído é a coleção de vários programas de computador que usam recursos computacionais em pontos centrais de computação diferentes para chegar em um objetivo comum e que sejam compartilhados. Os sistemas distribuídos visam remover gargalos ou pontos centrais de falha de um sistema. Os sistemas distribuídos costumam ajudar a melhorar a confiabilidade e o desempenho do sistema. A confiabilidade é aprimorada removendo pontos centrais de falha e gargalos.
+
+Benefícios dos Sistemas Distribuídos – Resumo
+
+Desempenho aprimorado: Ao distribuir a carga de trabalho entre os nós, os sistemas distribuídos conseguem lidar com uma quantidade maior de processamento e armazenamento, resultando em um desempenho global aprimorado;
+
+Escalabilidade: Os sistemas distribuídos são muito escaláveis, ou seja, eles podem ser facilmente expandidos adicionando mais nós ao sistema. Tal benefício permite lidar com um aumento na demanda de usuários ou no processamento de dados, garantindo que o sistema possa crescer de acordo com o necessário;
+
+Tolerância a falhas: Os sistemas distribuídos são mais resilientes a falhas por causa da sua natureza distribuída. Se um nó falhar, os outros nós ainda podem continuar operando, evitando interrupções no sistema como um todo. Tal capacidade de tolerar falhas é fundamental para assegurar alta disponibilidade e confiabilidade dos serviços;
+
+Disponibilidade: Os sistemas distribuídos podem fornecer serviços altamente disponíveis, ja que os nós distribuídos podem ser configurados em locais geograficamente diferentes. Isso ajuda a garantir que os serviços estejam acessíveis mesmo em caso de falhas locais ou interrupções em um determinado local;
+
+Flexibilidade e adaptação: Os sistemas distribuídos são flexíveis e adaptáveis, o que permite que novos nós sejam adicionados ou removidos do sistema conforme necessário. Essa flexibilidade e adaptabilidade possibilita ajustar a capacidade e os recursos do sistema de acordo com as demandas e requisitos em constante mudança;
+
+Compartilhamento de recursos: Os sistemas distribuídos possibilitam o compartilhamento eficiente de recursos, como armazenamento, processamento e dispositivos periféricos, entre vários nós. Esse compartilhamento de recursos permite melhorar a utilização dos recursos e evitar a duplicação desnecessária, resultando em maior eficiência e economia de custos.
+
+Colaboração e comunicação: Os sistemas distribuídos possibilitam a colaboração e comunicação entre diferentes nós e aplicativos. Isso facilita o compartilhamento de informações, o processamento cooperativo e a realização de tarefas complexas que exigem a interação de vários componentes distribuídos.
+
+Desafios dos Sistemas Distribuídos – Resumo
+Como podemos ver acima, por mais que os sistemas distribuídos ofereçam diversos benefícios, também apresentam desafios significativos. Sendo assim, alguns dos principais desafios enfrentados pelos sistemas distribuídos são:
+
+Comunicação e sincronização: A comunicação entre os nós de um sistema distribuído pode ser complexa, principalmente quando os nós estão em locais geograficamente distintos ou em diferentes redes;
+
+Consistência e coerência de dados: Manter a consistência dos dados em um ambiente distribuído, em que os mais variados nós podem ler e escrever dados simultaneamente, é um desafio. Assim, garantir a coerência dos dados em diferentes réplicas e evitar conflitos e inconsistências exige protocolos de sincronização e gerenciamento de transações eficientes;
+Tolerância a falhas: Mesmo que os sistemas distribuídos sejam projetados para serem resilientes a falhas, lidar com falhas em nós individuais ainda é um desafio;
+
+Segurança e privacidade: A segurança é uma preocupação crítica em sistemas distribuídos, já que os nós podem estar expostos a diferentes ameaças. Garantir a autenticação, a criptografia dos dados, a proteção contra ataques e a privacidade das informações são desafios constantes.
+
+Concorrência e paralelismo: Aproveitar o paralelismo e a capacidade de processamento distribuído em um sistema pode ser complexo. Coordenar e sincronizar tarefas concorrentes, gerenciar a concorrência de acesso aos recursos compartilhados e evitar condições de corrida são desafios comuns.
+
+Escalabilidade e gerenciamento de desempenho: À proporção que um sistema distribuído cresce, a escalabilidade e o gerenciamento de desempenho se tornam desafios significativos. Desse modo, garantir que o sistema possa lidar com o aumento da carga de trabalho, otimizar o desempenho distribuído e minimizar gargalos são desafios contínuos presentes nesses sistemas.
+
