@@ -1,0 +1,84 @@
+- **Threads**
+    
+    **O que são:**
+    
+    - São fluxos de execução dentro de um processo que compartilham o mesmo espaço de endereçamento, mas podem executar de forma independente, o que permite que um processo execute várias threads simultaneamente, aumentando a eficácia e desempenho. Um desafio das threads é a sincronização comunicação entre elas, por ser complexa e suscetíveis a erros, como condições de corrida e deadlocks.
+    
+    **Caracteristicas:**
+    
+    - Algumas características são, a leveza, de forma que por serem mais leves que os processos, exigem menos recursos para serem criadas e gerenciadas; o compartilhamento de memória, que permite o acesso rápido aos dados compartilhados, a sincronização, que permite que as threads se comuniquem e coordenem suas ações de forma ordenada; e sua eficiência, de forma que as threads permitem que um processo utilize recursos de forma mais eficiente, executando tarefas simultaneamente.
+    
+    **Modelo de threads:**
+    
+    - **Threads de Usuário:** gerenciadas em nível de aplicação, ou seja, a biblioteca de threads faz todo o gerenciamento no espaço do usuário, sem a necessidade de interação direta com o kernel (núcleo do sistema operacional, responsável por gerenciar os recursos do computador e facilitar a interação entre o hardware e o software) do sistema operacional.
+        - **Vantagens**: *rapidez* (como as threads são gerenciadas no espaço do usuário, as operações de criação, alternância (context switch) e sincronização de threads são mais rápidas, porque não envolvem chamadas ao kernel) e flexibiliade (bibliotecas de threads podem ser implementadas em qualquer sistema operacional sem necessidade de suporte específico do kernel)
+        - **Desvantagens**: *bloqueio* ( se uma thread de usuário fizer uma chamada bloqueante, como leitura de disco ou espera de rede, todo o processo é bloqueado, já que o kernel não reconhece as threads individuais, mas somente o processo como um todo) e *escalonamento* ( o kernel não tem conhecimento das threads de usuário e, portanto, não pode escaloná-las diretamente. Isso pode resultar em uma utilização ineficiente dos recursos da CPU).
+    - **Threads de Kernel:** gerenciadas pelo próprio kernel do sistema operacional. Cada thread é tratada como uma entidade separada pelo kernel, que cuida da criação, escalonamento e gerenciamento das threads.
+        - **Vantagens:** *eficiência do escalonamento* ( kernel pode realizar o escalonamento de threads com base na prioridade e nas necessidades de recursos de cada thread. Isso permite uma utilização mais eficiente da CPU e um melhor desempenho em sistemas multiprocessadores), *não realização de bloqueio* (como o kernel conhece todas as threads, ele pode continuar executando outras threads dentro do mesmo processo, mesmo se uma thread estiver bloqueada e uma operação de I/O(Input/Output).
+        - **Desvantagens:** *overhead maior* (as operações de gerenciamento de threads, como criação e alternância de contexto, são mais lentas porque envolvem chamadas ao kernel. Isso pode introduzir um overhead considerável, principalmente quando há muitas threads) e *complexidade* (a implementação e o gerenciamento de threads de kernel são mais complexos, exigindo suporte específico do sistema operacional).
+    
+     **Implementação de Threads:**
+    
+    - **Bibliotecas de threads:**  facilitam o uso e melhor utilização dos recursos da CPU, melhoram a estruturação do código e na escalabilidade das aplicações. Permitem uma utilização das threads de forma eficiente podendo levar a um aumento significativo no desempenho e na responsividade de aplicações, especialmente em sistemas multiprocessadores
+    - **Sincronização de Threads**: mecanismos como semáforos e barreiras são explicados para coordenar a execução de threads e evitar condições de corrida.
+    
+- **Virtualização**
+    
+    **O que é:**
+    
+    - É a tecnologia que permite criar uma versão virtual de um recurso físico, como hardware, sistemas operacionais, dispositivos de armazenamento ou recursos de rede. Em vez de usar o recurso físico diretamente, a virtualização permite que você utilize uma versão simulada do recurso, que se comporta como se fosse real. Ela usa  software para criar uma camada de abstração sobre o hardware físico. Isso permite que um único conjunto de hardware físico seja dividido em vários ambientes virtuais independentes, conhecidos como máquinas virtuais (VMs).
+    
+    **Benefícios:**
+    
+    - Melhora a utilização de recursos, facilita o gerenciamento e a migração de sistemas, e isola diferentes aplicações para melhorar a segurança e a estabilidade.
+    
+    **Tipos de Virtualização:**
+    
+    - **Virtualização completa:** também conhecida como full virtualization, emula um hardware completo para que sistemas operacionais e aplicações existentes possam ser executados sem nenhuma modificação.
+    - **Paravirtualização:**  envolve a modificação do sistema operacional convidado para que ele possa se comunicar diretamente com o hypervisor, o que melhora a performance.
+    - **Virtualização de Nível de Sistema Operacional**: também conhecida como containerização, permite que múltiplas instâncias isoladas de um sistema operacional rodem em um único host, utilizando containers.
+    
+    **Hypervisores:** software que cria e gerencia máquinas virtuais (VMs). Ele permite que múltiplos sistemas operacionais compartilhem um único hardware físico, isolando-os uns dos outros. O hypervisor gerencia a distribuição dos recursos físicos, como CPU, memória e dispositivos de I/O, entre as VMs.
+    
+    - **Hypervisor Tipo 1 (Bare-Metal)**: Corre diretamente sobre o hardware, proporcionando maior eficiência e controle.
+    - **Hypervisor Tipo 2 (Hospedado)**: Corre sobre um sistema operacional existente, facilitando a instalação e a compatibilidade com diferentes plataformas, mas com overhead maior.
+    
+- **Clientes**
+    
+    **O que são:**
+    
+    - São dispositivos, programas ou sistemas que fazem solicitações a um servidor para acessar ou utilizar recursos, serviços ou dados. Eles atuam como consumidores no modelo cliente-servidor.
+    
+    **Características:** 
+    
+    - Os clientes iniciam a interação com o sistema enviando solicitações aos servidores.
+    - Geralmente possuem uma interface gráfica ou uma interface de linha de comando que permite que os usuários interajam com o sistema.
+    - Se comunicam com os servidores através de protocolos de rede, como HTTP ou TCP/IP.
+    - Podem realizar parte do processamento localmente, antes de enviar solicitações aos servidores ou após receber respostas dos servidores.
+    
+    **Arquitetura Cliente-Servidor**
+    
+    - O modelo Cliente-Servidor é uma estrutura onde clientes solicitam serviços e servidores fornecem esses serviços. Facilita a distribuição de tarefas e recursos em um sistema distribuído.
+    - Servidores podem ser de diferentes tipos, como servidores de arquivos, de impressão, web, entre outros.
+    
+- **Servidores**
+    
+    **O que são:**
+    
+    - São sistemas ou aplicações que fornecem serviços, recursos, ou dados para outros programas ou dispositivos, conhecidos como clientes, através de uma rede. 
+    Em um sistema cliente-servidor, um **servidor** é um processo que fornece serviços aos clientes. Os servidores geralmente aguardam passivamente por solicitações dos clientes e respondem a essas solicitações, fornecendo os serviços desejados.
+    
+    **Características:**
+    
+    - Oferecem funcionalidades específicas aos clientes, como armazenamento de dados, processamento de informações ou acesso a recursos.
+    - Geralmente aguardam passivamente por solicitações dos clientes.
+    - Gerenciam recursos compartilhados, como memória, processamento e armazenamento, de forma a atender às solicitações dos clientes de forma eficiente.
+    - Podem ser escalados para atender a um grande número de clientes, adicionando mais recursos ou distribuindo a carga de trabalho entre vários servidores.
+    
+    **Tipos de servidores:**
+    
+    - **Servidores de Aplicação:** Executam aplicações específicas. Exemplos: servidores web, servidores de email ou servidores de banco de dados.
+    - **Servidores de Arquivos:** Armazenam e fornecem acesso a arquivos para os clientes.
+    - **Servidores de Impressão:** Gerenciam filas de impressão e imprimem documentos enviados pelos clientes.
+    - **Servidores de Diretório:** Armazenam e fornecem acesso a informações sobre usuários, grupos e recursos em uma rede.
+    - **Servidores de Proxy:** Intermediam a comunicação entre os clientes e outros servidores, fornecendo serviços como cache, segurança e filtragem de conteúdo.
