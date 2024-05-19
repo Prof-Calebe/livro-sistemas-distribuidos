@@ -13,28 +13,6 @@
 
 **Desvantagens:** heterogeneidade, segurança, concorrência, escalabilidade e complexidade na comunicação.
 
-### Arquiteturas em sistemas distribuídos :
-
-**Cliente-servidor :** divide as responsabilidades entre clientes ou solicitantes e servidores ou provedores de serviço.
-
-**Multicamadas :** organiza os componentes distribuídos em camadas com diferentes abstrações.
-
-**Peer to peer :** todos os nós no sistema têm a mesma função e podem comunicar entre sí diretamente.
-
-**Híbrida :** combinam diversos modelos de arquitetura acima citadas.
-
-***
-
-## Processos
-
-**O que é:** é uma instância de um programa em execução que possui um estado próprio.
-
-**Componentes:** área de texto, área de dados e área de stack.
-
-**Ciclo de vida:** criação, execução, espera, pronto e término.
-
-**Gerenciamento:** incluí escalonamento, sincronização e comunicação entre processos.  
-
 ***
 
 ## Arquitetura Cliente-Servidor
