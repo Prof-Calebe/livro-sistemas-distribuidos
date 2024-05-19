@@ -45,4 +45,38 @@ Algumas premissas falsas que todos adotam ao desenvolver uma aplicação distrib
 * **Sistemas de computação distribuídos** 
 * **Sistemas de informação distribuídos**
 * **Sistemas de embutidos distribuídos**
+
+# Processos
+
+## Conceito
+* O conceito de processos é originário do campo de sistemas operacionais e basicamente ele é exemplificado
+como um programa em execução. Porém falando de Sistemas Distribuídos outras questões mostram ser de iguais ou até de maior importância.
+
+### Modelos
+Três modos de contruir um servidor
+
+| Modelo     | Character |
+| ---      | ---       |
+| Threads | Paralelismo, chamadas bloqueadoras de sistemas         |
+| Processo monothread     | Sem paralelismo, chamadas bloqueadoras de sistemas        |
+| Máquina de estado finito     | Paralelismo, chamadas de sistemas não bloqueadoras        |
+
+## Virtualização
+Separação entre ter uma única CPU e ser capaz de fingir que há mais delas pode ser estendida também a outros recursos.
+* **Objetivo** Estender ou substituir uma interface existente de modo a imitar o comportamento de um outro sistema.
+
+## *Cliente x Servidor*
+
+## Clientes
+A importância e a tarefa é proporcionar aos usuários meios de interagir com servidores remotos <br>
+Modos:
+* 1. Para cada serviço remoto, a máquina cliente terá uma contraparte separada que pode contatar o serviço pela rede.
+  2. Oferecer acesso direto a serviços remotos oferecendo somente uma interface
+
+## Servidor
+Processo que implementa um serviço especídifo em nome de um conjunto de clientes.
+* Etapas:
+* 1. Espera por uma requisição que vem de um cliente.
+  2. Assegura que ela seja atentida.
+  3. Espera pela próxima requisição.
   
