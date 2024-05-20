@@ -1,0 +1,60 @@
+Segurança em Sistemas Distribuídos
+
+Por causa da complexidade e interconexão das aplicações, a segurança é fundamental em sistemas distribuídos.
+É preciso ter diversas ações para garantir a segurança dos dados e serviços contra ameaças. Neste trecho, os princípios mais
+relevantes da segurança em sistemas distribuídos serão analisados, incluindo práticas relacionadas e a importância das funções.
+
+Para garantir a confidencialidade, é crucial que apenas pessoas autorizadas tenham acesso às informações, entrando assim a famosa "criptografia".
+Tem como objetivo autenticação multifatorial e diretrizes de controle de acesso com base em funções ou atributos, garantindo a integridade dos dados,
+e também assegurando mudanças não autorizadas, são usadas assinaturas digitais, hashing e controle de versão.
+
+Assegurar a acessibilidade de sistemas e dados quando necessário é um fundamento da disponibilidade, que emprega redundância,
+mitigação de ataques DDoS e backups regulares. As informações são analisadas quanto à origem por meio da autenticidade,
+usando certificados digitais e protocolos seguros como o OAuth, utilizado atualmente no mercado internacional. A responsabilidade garante que para
+rastrear as atividades dos usuários, é preciso usar logs de auditoria, sistemas de detecção de intrusões e políticas de segurança bem definidos.
+
+Segurança e Práticas Tecnológicas envolvem várias áreas. Como por exemplo em segurança de redes, o monitoramento do tráfego pelos firewalls,
+que impede acessos não autorizados através das VPNs, que garantem uma comunicação segura.
+A proteção das informações sensíveis é realizada por meio da criptografia na segurança de dados, e o processo de gestão de chaves garante a sua geração.
+A segurança das aplicações inclui testes de penetração e práticas de desenvolvimento seguro. Enquanto lida com a gestão de vulnerabilidades e responde
+a incidentes, a segurança operacional se concentra. É importante estar em conformidade com regulamentações e certificações.
+
+Funções hash são algoritmos que transformam dados de tamanho arbitrário em uma cadeia fixa de caracteres, que parece ser aleatória,
+fundamentais para garantir a integridade dos dados. Verificações de integridade são feitas para detectar alterações nos dados,
+assinaturas digitais para garantir que os dados não foram alterados desde que foram assinados, e armazenamento de senhas através de hashing
+antes de armazená-las para proteger contra roubo de senhas. Criptossistemas de chave pública, como RSA e ECC, utilizam pares de chaves,
+uma pública e uma privada, para criptografia e decriptografia. Oferecendo uma forma segura de comunicação e autenticação.
+
+Os desafios da segurança em sistemas distribuídos incluem a complexidade de integrar medidas de segurança em aplicações variadas,
+a  dificuldade de obter escalabilidade a segurança em grande escala, o gerenciamento de identidades em sistemas distribuídos e a sincronização
+de dados para garantir consistência e integridade.
+
+Sendo assim, a segurança em sistemas distribuídos exige uma abordagem integrada e contínua para proteger dados e serviços. Utilizar funções hash e
+criptossistemas de chave pública é fundamental, e adaptar estratégias de segurança é essencial para enfrentar ameaças emergentes, garantindo a robustez e
+resiliência dos sistemas distribuídos.
+
+A criptografia é o processo de converter informações legíveis (plaintext) em um formato codificado (ciphertext) que só pode ser lido por alguém
+que possua a chave de decodificação apropriada. Existem dois tipos principais de criptografia: simétrica e assimétrica.
+
+Criptografia Simétrica é quando usa a mesma chave para criptografar e descriptografar dados,
+sendo assim mais rápida e eficiente para grandes quantidades de dados. O ônus seria o desafio de organizar essa distribuição de chaves,
+pois a mesma chave deve ser compartilhada de maneira segura entre as partes comunicantes. Como exemplo de criptografia simétrica nós temos
+Advanced Encryption Standard (AES), Data Encryption Standard (DES).
+
+Já na Criptografia Assimétrica, é utilizado um par de chaves (pública e privada), pública para criptografar e privada para descriptografar.
+Como vantagem temos o manuseio das chaves, onde eu consigo compartilhar chaves públicas sem afetar a segurança do dado,
+porém a lentidão é notável compuacionalmente falando. Alguns exemplos de criptografia assimétrica são RSA (Rivest-Shamir-Adleman), ECC (Elliptic Curve Cryptography).
+
+As funções hash são fundamentais na segurança de sistemas distribuídos devido a suas propriedades essenciais e diversas aplicações.
+Elas são determinísticas, produzindo sempre o mesmo resultado para a mesma entrada, e rápidas, garantindo eficiência no cálculo.
+São resistentes à pré-imagem, tornando impraticável descobrir a entrada original a partir do hash, e à segunda pré-imagem,
+dificultando encontrar uma segunda entrada com o mesmo hash. Também são resistentes a colisões, evitando que duas entradas diferentes produzam o mesmo hash.
+
+Essas propriedades tornam as funções hash ideais para verificação de integridade, detectando alterações nos dados,
+e para assinaturas digitais, assegurando que os dados não foram modificados após serem assinados. Além disso, são usadas para armazenar senhas de forma segura,
+transformando-as em hashes para protegê-las contra roubo. Exemplos de funções hash incluem o SHA-256, amplamente utilizado por sua segurança
+e confiabilidade, e o MD5, que é rápido mas não seguro contra colisões e, portanto, não recomendado para aplicações críticas.
+
+Em resumo, a criptografia e as funções hash são pilares fundamentais na construção de sistemas distribuídos seguros. A criptografia protege os dados
+de acessos não autorizados, enquanto as funções hash garantem que os dados permaneçam inalterados e íntegros. Juntos, eles proporcionam um ambiente seguro
+para a troca e armazenamento de informações em sistemas distribuídos.
