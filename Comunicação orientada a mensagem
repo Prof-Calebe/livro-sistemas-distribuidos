@@ -1,0 +1,37 @@
+Comunicação orientada a mensagem 
+
+Introdução
+
+A padronização da interface da camada de transporte se deu pela demanda dos programadores possuírem uma troca de mensagens (protocolos) através de um conjunto simples de primitiva. Interfaces padronizadas facilitam portar uma aplicação para uma máquina diferente.  
+
+Algumas interfaces foram propostas para realizar essa padronização, entre elas interface Sockets e interface XTI (X/Open Tansport Interface) ou, em portugues, interface de transporte X/Open. Ambas interfaces possuem modelos de programação semelhantes, mas conjuntos de primitivas diferentes.
+
+Soquete
+
+Um soquete é um terminal de comunicação onde uma aplicação escreve dados para enviar de uma rede subjacente para ler os dados que chegam. Além disso, ele forma uma abstração sobre o terminal de comunicação propriamente dito que é utilizado pelo sistema operacional local para um protocolo de transporte específico. Quando um servidor chama a primitiva soquete, o chamador cria um novo terminal de comunicação para um protocolo de transporte específico. Quando um terminal de comunicação é criado, o sistema operacional local reserva recursos para atender o envio e o recebimento de mensagens para o protocolo especificado.
+
+Bind
+
+A primitiva bind associa um endereço local com um soquete recém criado. Por exemplo, um servidor deve se vincular a um soquete para o endereço de IP de sua máquina junto com o número de porta. Essa vinculação comunica o sistema operacional que o servidor quer receber mensagens somente do endereço e porta que foram especificados.
+
+Listen
+
+A primitiva listen é utilizada no caso de comunicação orientada a conexão. Ela é uma chamada não bloqueadora que faz com que o sistema operacional reserve buffers suficientes para um número específico de conexões que o chamador está disposto a aceitar.
+
+Accept
+
+A chamada accept bloqueia o chamador até chegar uma requisição de conexão. Quando chega essa requisição, o sistema operacional local cria um novo soquete com as mesmas propriedades do original e o retorna ao chamador. Isso faz com que o servidor purifique um processo que irá manupilar a comunicação por meio da nova conexão e, enquanto isso, o servidor pode esperar por uma outra requisição de conexão no soquete original.
+
+
+
+Lado cliente 
+
+Para o lado cliente, é preciso criar um soquete usando a primitiva socket. Não é necessário que esse soquete se vincule a um endereço local, uma vez que o sistema operacional pode realizar uma alocação dinâmica para uma porta quando a conexão for estabelecida.
+
+Connect
+
+A primitiva connect requer que o chamador especifique o endereço de nível de transporte para onde uma requisição de conexão deve ser enviada. Enquanto isso, o cliente é bloqueado até que uma conexão se estabeleça com sucesso. Depois disso, ambos lados podem trocar informações por meio das primitivas send e receive.
+
+Fechamento de uma conexão
+
+O fechamento de uma conexão é simétrico quando se utiliza a interface sockets, o que  garante que ambos, cliente e servidor, chamem uma primitiva chamada close.
