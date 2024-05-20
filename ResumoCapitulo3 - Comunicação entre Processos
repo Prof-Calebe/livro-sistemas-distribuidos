@@ -5,75 +5,18 @@ OBESEVAÇÃO IMPORTANTE: O CONTEÚDO FOI FEITO NO GOOGLE DOCS ORIGINALMENTE E DE
 
 SUJEITO A ALGUMAS MUDANÇAS CONFORME O ESTUDOS SÃO FEITOS DURANTE O PROCESSO.
 
-Modelo de Mensagens (Message Passing):
-Envio e Recebimento de Mensagens: Processos trocam mensagens explícitas. Essa abordagem é utilizada em sistemas como MPI (Message Passing Interface) e pode ser síncrona ou assíncrona.
-Filas de Mensagens: Mensagens podem ser armazenadas em filas até que o destinatário esteja pronto para processá-las, facilitando a comunicação assíncrona.
-Chamadas de Procedimento Remoto (RPC):
-Chamada de Funções Remotas: Processos podem invocar procedimentos em máquinas remotas como se fossem chamadas locais. Isso simplifica a comunicação, abstraindo a complexidade da rede.
-Transparência: RPCs podem ser projetadas para serem transparentes, ocultando detalhes de localização e comunicação da rede dos programadores.
-Invocação de Métodos Remotos (RMI):
-Objetos Distribuídos: Similar ao RPC, mas orientado a objetos. Permite que métodos em objetos remotos sejam invocados.
-Desenvolvimento Orientado a Objetos: Facilita a construção de sistemas distribuídos baseados em paradigmas de programação orientada a objetos.
-Coordenação e Colaboração
-A coordenação e colaboração em sistemas distribuídos envolvem a gestão de recursos e a sincronização de atividades entre processos:
-Sincronização:
-Relógios Lógicos e Físicos: Utilizados para coordenar ações em sistemas distribuídos, garantindo ordenação de eventos. Exemplos incluem relógios de Lamport e vetores de relógio.
-Mutex Distribuído: Algoritmos para garantir exclusão mútua em sistemas distribuídos, como o algoritmo de Ricart-Agrawala.
-Cooperação entre Processos:
-Semáforos e Monitores Distribuídos: mecanismos de sincronização que permitem que processos colaborem de forma segura, evitando condições de corrida.
-Barreiras de Sincronização: Utilizadas para sincronizar a execução de um grupo de processos, garantindo que todos alcancem um certo ponto antes de prosseguir.
+fontes:
 
-
-Coordenação através de Espaços de Tuplas:
-Modelo de Linda: Utiliza um espaço de tuplas como uma memória associativa compartilhada, onde processos podem adicionar, ler e retirar tuplas. Facilita a coordenação e troca de informações de forma desacoplada.
-Consistência e Replicação:
-Modelos de Consistência: Diferentes modelos (forte, eventual, causal) para garantir que todos os processos vejam um estado consistente dos dados distribuídos.
-Protocolos de Replicação: Técnicas como quorum e consenso (Paxos, Raft) são usadas para garantir que réplicas de dados em diferentes máquinas permaneçam consistentes.
-
-Comunicação Síncrona e Assíncrona
-Comunicação Síncrona:
-Definição: Na comunicação síncrona, o envio e o recebimento de mensagens são operações bloqueantes. O remetente envia uma mensagem e fica bloqueado até que o destinatário receba e processe a mensagem.
-Vantagens:
-Simplicidade: Fácil de entender e implementar, pois o fluxo de controle é direto.
-Sincronização Natural: Garante que o remetente saiba quando a mensagem foi recebida.
-Desvantagens:
-Eficiência: Pode ser ineficiente, pois o remetente precisa esperar a confirmação de recebimento.
-Escalabilidade: Pode não escalar bem em sistemas com alta latência de rede ou onde processos têm tempos de resposta variáveis.
-Comunicação Assíncrona:
-Definição: Na comunicação assíncrona, o envio de mensagens é uma operação não bloqueante. O remetente envia a mensagem e continua sua execução sem esperar pela confirmação de recebimento. O destinatário processa a mensagem quando estiver pronto.
-Vantagens:
-Desempenho: Melhor desempenho, pois o remetente não precisa esperar, podendo realizar outras tarefas.
-Escalabilidade: Escala melhor em ambientes com alta latência e onde processos podem ter tempos de resposta variáveis.
-Desvantagens:
-Complexidade: Mais complexa de implementar, pois requer mecanismos adicionais para confirmação de recebimento e gerenciamento de mensagens perdidas.
-Sincronização: Requer técnicas adicionais para sincronizar o estado entre remetente e destinatário.
-Técnicas de Serialização e Desserialização de Dados
-Para que a passagem de mensagens funcione de forma eficiente, especialmente em sistemas heterogêneos onde processos podem ser executados em diferentes arquiteturas e plataformas, os dados precisam ser convertidos em um formato que possa ser transmitido pela rede. Esse processo envolve serialização e desserialização.
-Serialização:
-Definição: Serialização é o processo de converter uma estrutura de dados ou objeto em um formato que pode ser facilmente armazenado ou transmitido, como uma sequência de bytes.
-Objetivo: Garantir que os dados possam ser enviados através de uma rede ou armazenados em um meio de armazenamento persistente.
-Formatos Comuns:
-JSON, XML, Protobuf, Avro
-Desserialização:
-Definição: Desserialização é o processo inverso da serialização, onde os dados serializados são convertidos de volta à sua estrutura original.
-Objetivo: Reconstruir os dados na forma original para serem utilizados pelo programa receptor.
-
-
-
-
-
-
-
-
-
-
-
-
+https://www.hostnet.com.br/blog/entenda-o-que-e-trafego-e-largura-de-banda/#:~:text=A%20largura%20de%20banda%20ou,passam%20atrav%C3%A9s%20desta%20rede%20espec%C3%ADfica.
+https://www.linkedin.com/advice/3/how-can-you-address-latency-distributed-system-ylhbc?lang=pt&originalSubdomain=pt#:~:text=Lat%C3%AAncia%20%C3%A9%20o%20tempo%20que,e%20a%20escalabilidade%20do%20sistema.
+https://pt.wikipedia.org/wiki/Chamada_de_procedimento_remoto#:~:text=Chamada%20remota%20de%20procedimento%20(RPC,%2C%20conectado%20por%20uma%20rede).
+https://www.devmedia.com.br/tutorial-rmi-invocacao-remota-de-metodos/4493
+https://blog.casadodesenvolvedor.com.br/middleware-o-que-e-como-funciona/#:~:text=O%20middleware%20de%20comunica%C3%A7%C3%A3o%20lida,a%20comunica%C3%A7%C3%A3o%20entre%20objetos%20distribu%C3%ADdos.
 
 Capítulo Comunicação Remota
 
 RPC (Remote Procedure Call)
-Definição: RPC é um protocolo que permite que um programa execute um procedimento (sub-rotina) em outra máquina sem que o programador precise codificar explicitamente os detalhes da comunicação de rede.
+Definição: RPC é um protocolo que permite que um programa execute um procedimento em outra máquina sem que o programador precise codificar explicitamente os detalhes da comunicação de rede.
 Funcionamento:
 Chamador (Client): Inicia a chamada de procedimento remoto, que é capturada por uma biblioteca local de RPC.
 Stub Cliente: Converte a chamada e os parâmetros para um formato padronizado e envia a solicitação para o servidor.
@@ -124,27 +67,9 @@ Complexidade de Implementação: Requer gestão cuidadosa de referências remota
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Capítulo Middleware de Comunicação
+
+
 Middleware de Passagem de Mensagens
 Definição: Middleware de passagem de mensagens facilita a comunicação entre processos através do envio e recebimento de mensagens. Ele abstrai a complexidade das operações de rede, proporcionando uma interface mais simples para os desenvolvedores.
 
@@ -185,9 +110,7 @@ Gestão de Serviços: Requer mecanismos para descoberta, monitoramento e gerenci
 Capítulo Protocolos de Comunicação
 
 TCP/IP (Transmission Control Protocol/Internet Protocol)
-
 Definição: TCP/IP é a principal suite de protocolos utilizada na internet e em redes privadas. Ele define como os dados devem ser formatados, endereçados, transmitidos, roteados e recebidos nos pontos de destino.
-
 Características:
 TCP (Transmission Control Protocol):
 Confiabilidade: Garante a entrega ordenada e sem erros de um fluxo de bytes entre aplicações que se comunicam.
@@ -196,12 +119,14 @@ Estabelecimento de Conexão: Utiliza um processo de handshake de três vias para
 IP (Internet Protocol):
 Endereçamento: Define como os dispositivos são endereçados e identificados na rede (endereços IP).
 Roteamento: Determina como os pacotes são roteados através de várias redes até alcançarem seu destino.
+
 UDP (User Datagram Protocol)
 Definição: UDP é um protocolo de comunicação simples e sem conexão que permite a troca de mensagens (datagramas) entre dispositivos em uma rede.
 Características:
 Sem Conexão: Não estabelece uma conexão antes de enviar dados.
 Baixa Latência: Ideal para aplicações que requerem baixa latência e podem tolerar alguma perda de dados.
 Sem Garantia de Entrega: Não garante a entrega dos pacotes, nem a ordem correta.
+
 HTTP (Hypertext Transfer Protocol)
 Definição: HTTP é um protocolo de aplicação para sistemas de informação distribuídos, colaborativos e hipermídia. É a base da comunicação de dados para a World Wide Web.
 Características:
@@ -210,18 +135,18 @@ Métodos de Requisição: Define métodos como GET, POST, PUT, DELETE, etc., que
 Mensagens: As mensagens HTTP consistem de um cabeçalho e um corpo opcional contendo os dados.
 
 FTP (File Transfer Protocol)
-Definição: FTP é um protocolo padrão de rede utilizado para a transferência de arquivos entre um cliente e um servidor em uma rede de computadores.
+Definição: Em uma rede de computadores, a transferência de arquivos entre um cliente e um servidor é realizada através do protocolo padrão de rede, conhecido como FTP.
 Características:
 Autenticação: Suporta autenticação de usuário por meio de um nome de usuário e senha.
 Modo Ativo e Passivo: Define modos de operação que determinam como a conexão de dados é estabelecida entre cliente e servidor.
 Transferência de Arquivos: Permite comandos para upload, download, renomear, deletar e listar arquivos no servidor.
 
 SMTP (Simple Mail Transfer Protocol)
-Definição: SMTP é um protocolo de comunicação para a transmissão de e-mails entre servidores de e-mail.
+Definição: SMTP é um protocolo de comunicação de e-mails entre servidores de e-mail.
 Características:
 Envio de E-mails: Responsável pelo envio de e-mails de um cliente para um servidor de e-mail ou entre servidores de e-mail.
-Conexão Simples: Utiliza uma conexão simples baseada em texto para enviar comandos e transferir mensagens.
-Relé de E-mails: Permite que e-mails sejam encaminhados de um servidor para outro até alcançar o destinatário final.
+Conexão Simples: Utiliza uma conexão simples baseada em texto.
+Servidor de E-mails: Permite que e-mails sejam encaminhados de um servidor para outro até alcançar ao destinatário final.
 
 
 
@@ -230,18 +155,14 @@ Relé de E-mails: Permite que e-mails sejam encaminhados de um servidor para out
 Capítulo Padrões de Projeto e Implementação
 
 Padrão Cliente-Servidor
-Definição: O padrão Cliente-Servidor é uma arquitetura de rede onde múltiplos clientes se conectam a um servidor centralizado para acessar recursos ou serviços.
+Definição: Cliente-Servidor é uma arquitetura de rede onde os clientes se conectam a um servidor a fim de centralizar o acesso dis recursos ou serviços.
 Características:
-Cliente: É a entidade que solicita serviços ou recursos. Pode ser um programa de usuário, como um navegador web ou um cliente de e-mail.
-Servidor: É a entidade que fornece serviços ou recursos. Pode ser um servidor web, servidor de banco de dados, servidor de e-mail, etc.
-Comunicação: A comunicação entre cliente e servidor geralmente ocorre através de uma rede usando protocolos como HTTP, FTP, ou SMTP.
-Funcionamento:
-O cliente envia uma solicitação para o servidor.
-O servidor processa a solicitação.
-O servidor envia uma resposta de volta para o cliente.
+Cliente: É quem solicita serviços ou recursos. 
+Servidor: É a entidade que fornece serviços ou recursos.
+Comunicação: A comunicação entre cliente e servidor geralmente ocorre através de uma rede usando protocolos como por exemplo o HTTP
+Funcionamento: o cliente envia uma solicitação para o servidor -> servidor processa a solicitação -> servidor envia uma resposta de volta para o cliente.
 Vantagens:
 Centralização: Facilita a gestão, manutenção e segurança dos dados e serviços.
-Escalabilidade: Servidores podem ser dimensionados para suportar um grande número de clientes.
 Desvantagens:
 Ponto Único de Falha: Se o servidor falhar, todos os clientes ficam sem acesso ao serviço.
 Desempenho: O desempenho pode ser um problema se muitos clientes acessarem o servidor simultaneamente.
@@ -251,7 +172,8 @@ Desempenho: O desempenho pode ser um problema se muitos clientes acessarem o ser
 
 
 Padrão Publicador-Subscritor
-Definição: O padrão Publicador-Subscritor (também conhecido como Publish-Subscribe ou Pub-Sub) é uma arquitetura de mensagens onde remetentes de mensagens (publicadores) não enviam mensagens diretamente para destinatários específicos (subscritores), mas para um sistema intermediário que as distribui.
+Definição: O padrão Publicador-Subscritor (Publish-Subscribe ou Pub-Sub) é uma arquitetura de mensagens onde remetentes de mensagens não enviam mensagens diretamente para destinatários específicos, 
+mas para um sistema intermediário que ai sim as distribui conforme o seu destinatário.
 Características:
 Publicadores: Entidades que geram e enviam mensagens sobre determinados tópicos ou eventos.
 Subscritores: Entidades que expressam interesse em um ou mais tópicos ou eventos e recebem mensagens relevantes.
@@ -272,32 +194,30 @@ Latência: Pode introduzir latência devido ao processamento intermediário pelo
 
 
 Padrão Modelo-Vista-Controlador (MVC)
-Definição: O padrão Modelo-Vista-Controlador (MVC) é uma arquitetura de software que separa a aplicação em três componentes principais: o modelo, a vista e o controlador.
+Definição: M(odel View Controller) é uma arquitetura de software que separa a aplicação em três componentes: modelo, conteúdo na visao de usuário e o controlador.
 Componentes:
-Modelo: Representa os dados e a lógica de negócio da aplicação. É responsável por acessar a base de dados e realizar operações de manipulação dos dados.
-Vista: Representa a interface do usuário. É responsável por apresentar os dados ao usuário e capturar a entrada do usuário.
+Modelo: Representa os dados e a lógica de negócio da aplicação.
+Visao do usuário: Representa a interface do usuário.
 Controlador: Interpreta a entrada do usuário e a converte em chamadas para o modelo ou para a vista. Atua como um intermediário entre a vista e o modelo.
 Funcionamento:
-O usuário interage com a vista (por exemplo, clicando em um botão).
-O controlador captura essa interação e decide o que fazer em resposta (por exemplo, solicitar dados do modelo).
-O controlador chama o modelo para realizar uma operação ou recuperar dados.
-O modelo executa a operação e retorna os dados ao controlador.
-O controlador atualiza a vista com os novos dados.
+O usuário interage com a vista, controlador captura essa interação e decide o que fazer em resposta, com isso o controlador chama o modelo para realizar uma operação, Após isso o
+modelo executa a operação e retorna os dados ao controlador.
 Vantagens:
-Separação de Preocupações: Facilita a manutenção e evolução da aplicação, pois separa a lógica de negócio da interface do usuário.
-Reutilização de Componentes: Componentes do modelo, vista e controlador podem ser reutilizados em diferentes partes da aplicação ou em diferentes projetos.
+Estrutura: Facilita a manutenção da aplicação, pois separa a lógica de negócio da interface do usuário.
 Desvantagens:
-Complexidade Inicial: Pode introduzir complexidade adicional no início do desenvolvimento, pois requer uma boa compreensão da separação entre os componentes.
-Sobrecarregamento do Controlador: O controlador pode se tornar um gargalo se tiver muitas responsabilidades.
+Complexidade Inicial: De inicio pode haver uma complexidade muito alta devido a um pre conhecimento dos componentes e suas devidas separação de funcionalidade
+Sobrecarregamento do Controlador: O controlador pode sobre carregar caso houver muitas funcionalidades.
 
 
 
 Capítulo Desafios e Considerações de Desempenho
 
 Latência
-Definição: Latência é o tempo total que um dado leva para viajar de um ponto a outro em uma rede. É um dos principais fatores que afetam o desempenho percebido pelos usuários em sistemas distribuídos.
+Definição: Latencia é o tempo em que uma mensagem ou dado leva para ir de um ponto até outro em uma rede. é o fator principal de desempenho em sistemas distribuidos.
 Largura de Banda
-Definição: Largura de banda refere-se à quantidade máxima de dados que pode ser transmitida através de um meio de comunicação em um determinado período de tempo, geralmente medida em bits por segundo (bps).
+Definição: É a capacidade que de tamanho em que dados podem ser enviados em uma determinada velocidade
 Escalabilidade
-Definição: Escalabilidade é a capacidade de um sistema distribuído de crescer e gerenciar um aumento na carga de trabalho sem comprometer significativamente o desempenho.
+Definição: É a capacidade de ampliar um sistema de maneira q nao o prejudique ou o comprometa
+
+
 
