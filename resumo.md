@@ -65,18 +65,26 @@ Três modos de contruir um servidor
 Separação entre ter uma única CPU e ser capaz de fingir que há mais delas pode ser estendida também a outros recursos.
 * **Objetivo** Estender ou substituir uma interface existente de modo a imitar o comportamento de um outro sistema.
 
-## *Cliente x Servidor*
+# *Cliente x Servidor*
 
 ## Clientes
+* Solicitam serviços e recursos, recebendo-os como resposta
 A importância e a tarefa é proporcionar aos usuários meios de interagir com servidores remotos <br>
 Modos:
 * 1. Para cada serviço remoto, a máquina cliente terá uma contraparte separada que pode contatar o serviço pela rede.
   2. Oferecer acesso direto a serviços remotos oferecendo somente uma interface
 
 ## Servidor
+* Fornecem serviços e recursos
 Processo que implementa um serviço especídifo em nome de um conjunto de clientes.
-* Etapas:
-* 1. Espera por uma requisição que vem de um cliente.
-  2. Assegura que ela seja atentida.
-  3. Espera pela próxima requisição.
-  
+
+## Rede
+* Infraestrutura que vai conectar os dois (cliente x servidor)
+* 1. Local (LAN)
+  2. Global (Internet)
+ 
+## Características
+* Uma boa *distribuição de tarefas* dividindo entre o cliente o servidor.
+* A *comunicação baseada em mensagens*, onde o cliente envia uma solicitação, e o servidor retorna uma resposta podendo ser essa comunicação síncrona ou assíncrona.
+* *Escalabilidade* boa para lidar com cargas de trabalho mais pesadas ou atender mais clientes.
+* *Centralização* o servidor é responsável por gerenciar os recursos compartilhados. 
