@@ -1,0 +1,81 @@
+Resumo capítulo 4 e 4.1
+Protocolos em Camadas: 
+-Protocolo de níveis mais baixos, protocolos de transporte, protocolo de níveis mais altos e protocolo de Middleware
+---------------------------------------------------------------------------------------------------------------------
+
+----------- Comunicação -----------
+A comunicação em sistemas distribuídos é sempre baseada em troca de mensagens de baixo nível como a oferecida pela rede subjacente. É mais difícil expressar comunicação por meio de troca de mensagens do que usar primitivas baseadas em memória compartilhada, como a disponível para plataformas não distribuídas.
+Constantemente, sistemas distribuídos modernos consistem em milhares ou até milhões de processos espalhados por uma rede de comunicação que não é confiável, como a Internet. A menos que os recursos de comunicação oferecidos pelas redes de computadores sejam substituídos por alguma outra coisa, o desenvolvimento de aplicações distribuídas em grande escala é extremamente difícil.
+
+Toda comunicação em sistemas distribuídos é baseada no envio e recebimento de mensagens (de baixo nível), por conta da ausência de memória compartilhada. 
+Quando dois processos querem se comunicar, o primeiro processo monta uma mensagem e usa uma chamada de sistema para enviá-la pela rede até o segundo. Se um processo enviar algo que está codificado de um jeito e o outro processo estiver esperando algo diferente com outra codificação, a comunicação não será boa.
+São necessários acordos em uma variedade de níveis que vão de detalhes de baixo nível de transmissão de bits a detalhes de alto nível sobre como a informação deve ser expressa.
+Para gerenciar a complexidade da comunicação, a International Organization for Standardization (ISO) desenvolveu um modelo de referência que identifica claramente os vários níveis envolvidos, dando a eles nomes padronizados e indica qual nível deve fazer tal serviço. Esse modelo é denominado modelo de referência para interconexão de sistemas abertos (OSI).
+É importante ressaltar que os protocolos OSI nunca foram amplamente usados, atualmente estão até mortos, porém o modelo é útil para entender redes de computadores.
+Se um grupo de computadores quiser se comunicar por uma rede, todos eles têm de concordar com os protocolos que serão utilizados. O conjunto de protocolos utilizado em determinado sistema é denominado suíte de protocolos ou pilha de protocolos.
+O modelo OSI é projetado para permitir que sistemas abertos se comuniquem. Nele há protocolos (regras padronizadas que regem o formato, o conteúdo e o significado das mensagens recebidas) orientados a conexão, onde o remetente e o receptor estabelecem explicitamente uma conexão e possivelmente negociam o protocolo que usarão antes de realizar trocar dados quando o protocolo não tem conexão, no qual a comunicação ocorre sem preparativos prévios e remetente apenas transmite a primeira mensagem quando estiver pronta. 
+A comunicação é dividida em sete camadas. Cada camada lida com um aspecto específico da comunicação. Desse modo, o problema pode ser dividido em porções gerenciáveis, e cada uma delas pode ser resolvida independentemente das outras. Cada camada fornece uma interface para a camada que está acima dela. A interface consiste em um conjunto de operações que, juntas, definem o serviço que a camada está preparada para oferecer a seus usuários.
+Quando um processo em uma máquina quer se comunicar com outro processo em outra máquina, ele vai criar e passar uma mensagem para a camada de aplicação. Essa camada adiciona um cabeçalho e passa a mensagem para a camada de apresentação. Essa camada adiciona seu próprio cabeçalho e passa a mensagem para a camada de sessão, e assim por diante. Algumas camadas adicionam também um trailer no final da mensagem. A mensagem vai ser transmitida pelo do meio físico de comunicação, depois de chegar na camada física. E quando ela chegar ao destinatário, os cabeçalhos são removidos e a mensagem é passada para a camada superior.
+
+----------- Protocolos de Níveis Mais Baixos -----------
+As três camadas mais baixas da pilha de protocolos OSI (física, enlace e rede) juntas implementam as funções básicas que abrangem uma rede de computadores.
+As três camadas inferiores do modelo OSI implementam as funções básicas que abrangem uma rede de computadores. Tratam da transmissão de bits (camada física), da detecção e correção de erros (camada de enlace) e do roteamento de mensagens através da rede (camada de rede). 
+
+Camada Física:
+- Trata da transmissão de bits.
+
+Camada de Enlace:
+- Responsável pela detecção e correção de erros.
+- Agrupa bits em quadros.
+- Verifica a integridade dos quadros.
+
+Camada de Rede:
+- Cuida do roteamento de mensagens.
+- Determina o melhor caminho para os dados na rede.
+- Garante que as mensagens alcancem o destino.
+
+----------- Protocolo de transporte -----------
+A camada de transporte é responsável por garantir a entrega segura e confiável dois dados, separando as mensagens em segmentos, os numerando e gerenciando sua retransmissão, se for necessário. 
+Tipos de Conexão: orientada a conexão (Todos os pacotes chegam ao destino na sua sequência correta) e sem conexão (Pacotes tem chance de chegar fora de ordem e são reorganizados pelo software de transporte)
+Exemplos de protocolos de transporte usados na Internet: TCP e UDP
+
+- TCP (Transmission Control Protocol): Protocolo de transporte confiável
+- UDP (Universal Datagram Protocol): Protocolo sem conexão e não confiável
+- RTP (Real-time Transport Protocol): Suporta transferência de dados em tempo real, sem garantir sua entrega.
+
+----------- Protocolos de Níveis Mais Altos -----------
+3 camadas adicionais são definidas acima da camada de transporte: sessão, apresentação e aplicação:
+
+Camada de Sessão:
+- Controle de diálogo e facilidade de sincronização;
+- Inserção de pontos de verificação em transferências longas;
+- Não é muito utilizada na prática e não é suportada na pilha de protocolos da Internet.
+
+Camada de Apresentação:
+- Se preocupa com o significado dos bits transmitidos;
+- Define estruturas para informações;
+- Facilita a comunicação entre as máquinas que tem diferentes representações internas.
+
+Camada de Aplicação:
+- Conter aplicações padronizadas de rede;
+- Agrupa as aplicações e protocolos que não se ajustam às camadas subjacentes.
+- Falta de distinção clara entre aplicações, protocolos específicos de aplicação e protocolos de uso geral.
+- Protocolo de Transferência de Arquivos (FTP) e Protocolo de Transferência de Hipertexto (HTTP).
+
+----------- Protocolos de Middleware ----------- 
+Middleware é uma aplicação situada logicamente na camada de aplicação, mas com protocolos próprios que justificam camadas independentes:
+
+Serviços de Middleware:
+- Autenticação: Fornece prova de identidade declarada e é integrada como um serviço geral.
+- Autorização: da permissão de acesso a recursos autorizados.
+- Protocolos de Comprometimento: Garante que todos processos executem uma operação ou nenhum a execute.
+- Protocolos de Bloqueio Distribuído: restringe acesso simultâneo por processos distribuídos.
+
+Protocolos de Comunicação de Middleware:
+- Chamadas de Procedimentos Remotos (RPC): Visa ocultar grande parte das complexidades da troca de mensagens e ideal para aplicações cliente-servidor.
+- Serviços de Enfileiramento de Mensagens: suportam comunicação assíncrona.
+- Comunicação de Mídia Contínua: necessária para transferência de dados em tempo real em aplicações multimídia.
+- Serviços de Multicasting Confiáveis: permitem disseminação de mensagens para milhares de receptores em redes de longa distância.
+
+O modelo de referência adaptado de middleware substitui as camadas de sessão e apresentação do OSI por uma única camada de middleware, contendo protocolos independentes de aplicação. Esses protocolos não pertencem às camadas mais baixas e os serviços de transporte originais podem ser oferecidos como um serviço de middleware. Serviços de comunicação de middleware podem incluir troca de mensagens comparáveis aos oferecidos pela camada de transporte. 
+
