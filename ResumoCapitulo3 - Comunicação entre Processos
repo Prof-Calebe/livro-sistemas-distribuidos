@@ -1,0 +1,224 @@
+Resumo Sistemas distribuídos 
+Resumo abaixo aborda diversos temas feitos 
+Resumo feito por Gian e Lucca
+Resumo do capítulo 3 do livro para a turma: Comunicação entre Processos
+OBESEVAÇÃO IMPORTANTE: O CONTEÚDO FOI FEITO NO GOOGLE DOCS ORIGINALMENTE E DEPOIS PASSADO PARA CA, LOGO PODE HAVER DIVERSOS ERRROS DE FORMATAÇÃO ABAIXO.
+
+SUJEITO A ALGUMAS MUDANÇAS CONFORME O ESTUDOS SÃO FEITOS DURANTE O PROCESSO.
+
+fontes:
+
+https://www.hostnet.com.br/blog/entenda-o-que-e-trafego-e-largura-de-banda/#:~:text=A%20largura%20de%20banda%20ou,passam%20atrav%C3%A9s%20desta%20rede%20espec%C3%ADfica.
+https://www.linkedin.com/advice/3/how-can-you-address-latency-distributed-system-ylhbc?lang=pt&originalSubdomain=pt#:~:text=Lat%C3%AAncia%20%C3%A9%20o%20tempo%20que,e%20a%20escalabilidade%20do%20sistema.
+https://pt.wikipedia.org/wiki/Chamada_de_procedimento_remoto#:~:text=Chamada%20remota%20de%20procedimento%20(RPC,%2C%20conectado%20por%20uma%20rede).
+https://www.devmedia.com.br/tutorial-rmi-invocacao-remota-de-metodos/4493
+https://blog.casadodesenvolvedor.com.br/middleware-o-que-e-como-funciona/#:~:text=O%20middleware%20de%20comunica%C3%A7%C3%A3o%20lida,a%20comunica%C3%A7%C3%A3o%20entre%20objetos%20distribu%C3%ADdos.
+
+Capítulo Comunicação Remota
+
+RPC (Remote Procedure Call)
+Definição: RPC é um protocolo que permite que um programa execute um procedimento em outra máquina sem que o programador precise codificar explicitamente os detalhes da comunicação de rede.
+Funcionamento:
+Chamador (Client): Inicia a chamada de procedimento remoto, que é capturada por uma biblioteca local de RPC.
+Stub Cliente: Converte a chamada e os parâmetros para um formato padronizado e envia a solicitação para o servidor.
+Transporte: A solicitação é enviada através da rede para o servidor.
+Stub Servidor: Recebe a solicitação, desserializa os parâmetros e invoca o procedimento apropriado no servidor.
+Servidor: Executa o procedimento e retorna o resultado ao stub servidor.
+Stub Servidor: Serializa o resultado e envia de volta para o cliente.
+Stub Cliente: Recebe o resultado, desserializa e entrega ao chamador original.
+Vantagens:
+Transparência: Programadores podem invocar procedimentos remotos como se fossem locais.
+Abstração: Esconde a complexidade da comunicação de rede.
+Desvantagens:
+Latência: Pode introduzir latência devido à comunicação de rede.
+Falhas: Tratamento de falhas é mais complexo (falhas de rede, servidor indisponível).
+
+Invocação de Métodos Remotos (RMI)
+Definição: RMI é uma extensão do conceito de RPC, aplicada a programação orientada a objetos, onde métodos de objetos podem ser invocados remotamente.
+Funcionamento:
+Objeto Remoto: Um objeto cujos métodos podem ser invocados de outra máquina.
+Registro de Objetos: Objetos remotos são registrados em um serviço de diretório para serem localizados por clientes.
+Stub Cliente: Representa o objeto remoto no cliente, gerenciando a comunicação.
+Skeleton Servidor: No servidor, o skeleton desserializa as solicitações e invoca os métodos no objeto real.
+Transporte: Comunicação entre stubs e skeletons através da rede.
+Vantagens:
+Abstração Orientada a Objetos: Facilita o desenvolvimento em linguagens orientadas a objetos.
+Transparência de Localização: Objetos remotos são utilizados como se estivessem no mesmo espaço de memória.
+Desvantagens:
+Desempenho: Similar aos RPCs, pode introduzir latência.
+Complexidade: Requer a definição e gerenciamento de objetos remotos e seus stubs.
+
+Objetos Distribuídos
+Definição: Objetos distribuídos são objetos que existem em diferentes espaços de endereçamento de memória e podem se comunicar através da rede. RMI é uma implementação específica desse conceito.
+Funcionamento:
+Transparência de Acesso: Clientes acessam objetos remotos como se fossem locais.
+Transparência de Localização: Clientes não precisam saber a localização física dos objetos remotos.
+Transparência de Mobilidade: Objetos podem se mover entre diferentes locais sem afetar o cliente.
+Transparência de Concurrency: Vários clientes podem acessar simultaneamente um objeto distribuído.
+Exemplos:
+CORBA (Common Object Request Broker Architecture): Permite que objetos distribuídos escritos em diferentes linguagens de programação interajam.
+DCOM (Distributed Component Object Model): Microsoft, similar ao CORBA, permite a comunicação entre componentes distribuídos.
+Vantagens:
+Modularidade: Facilita o desenvolvimento modular e reutilização de componentes.
+Interoperabilidade: Suporta interação entre diferentes plataformas e linguagens de programação.
+Desvantagens:
+Desempenho: Comunicação entre objetos distribuídos pode ser mais lenta devido à sobrecarga de rede.
+Complexidade de Implementação: Requer gestão cuidadosa de referências remotas e manipulação de falhas.
+
+
+
+
+Capítulo Middleware de Comunicação
+
+
+Middleware de Passagem de Mensagens
+Definição: Middleware de passagem de mensagens facilita a comunicação entre processos através do envio e recebimento de mensagens. Ele abstrai a complexidade das operações de rede, proporcionando uma interface mais simples para os desenvolvedores.
+
+Características:
+Modelo de Comunicação: Baseado na troca explícita de mensagens entre processos.
+Desacoplamento: Os processos são desacoplados no tempo (não precisam estar ativos ao mesmo tempo) e no espaço (não precisam conhecer as localizações uns dos outros).
+Vantagens:
+Escalabilidade: Facilita a escalabilidade horizontal, permitindo adicionar mais consumidores para processar mensagens em paralelo.
+Resiliência: Melhora a resiliência ao desacoplar produtores e consumidores, permitindo que cada um opere independentemente.
+Desvantagens:
+Complexidade: Requer a gestão de filas e tópicos, além de lidar com a entrega garantida e ordem de mensagens.
+Latência: Pode introduzir latência devido ao armazenamento intermediário das mensagens.
+
+Middleware Orientado a Objeto
+Definição: Middleware orientado a objeto facilita a comunicação entre objetos distribuídos, permitindo que métodos em objetos remotos sejam invocados como se fossem locais.
+Características:
+Abstração Orientada a Objetos: Utiliza conceitos de programação orientada a objetos para modelar a comunicação.
+Transparência: Esconde a complexidade da rede, permitindo que objetos interajam de forma transparente.
+Vantagens:
+Natural para Programadores OO: Integra-se bem com linguagens e paradigmas orientados a objetos.
+Interoperabilidade: Permite a comunicação entre diferentes plataformas e linguagens.
+Desvantagens:
+Desempenho: A sobrecarga de invocação remota pode ser significativa.
+Complexidade de Gestão: Requer a gestão de objetos remotos e suas referências.
+
+Middleware Baseado em Serviços
+Definição: Middleware baseado em serviços facilita a comunicação entre serviços independentes, normalmente através de APIs bem definidas. É a base para arquiteturas de micro serviços e SOA (Service-Oriented Architecture).
+Características:
+Desacoplamento de Serviços: Cada serviço é independente e se comunica com outros serviços através de interfaces bem definidas.
+Interoperabilidade: Utiliza padrões abertos (HTTP, JSON, XML) para permitir a comunicação entre serviços desenvolvidos em diferentes tecnologias.
+Vantagens:
+Flexibilidade: Serviços podem ser desenvolvidos, implantados e escalados independentemente.
+Reutilização e Composição: Serviços podem ser reutilizados em diferentes aplicações e compostos para criar funcionalidades mais complexas.
+Desvantagens:
+Latência e Desempenho: Chamadas de serviço podem introduzir latência devido à comunicação de rede.
+Gestão de Serviços: Requer mecanismos para descoberta, monitoramento e gerenciamento de serviços.
+
+Capítulo Protocolos de Comunicação
+
+TCP/IP (Transmission Control Protocol/Internet Protocol)
+Definição: TCP/IP é a principal suite de protocolos utilizada na internet e em redes privadas. Ele define como os dados devem ser formatados, endereçados, transmitidos, roteados e recebidos nos pontos de destino.
+Características:
+TCP (Transmission Control Protocol):
+Confiabilidade: Garante a entrega ordenada e sem erros de um fluxo de bytes entre aplicações que se comunicam.
+Controle de Fluxo e Congestionamento: Gerencia a taxa de transmissão de dados para evitar congestionamento da rede.
+Estabelecimento de Conexão: Utiliza um processo de handshake de três vias para estabelecer uma conexão confiável antes de transmitir dados.
+IP (Internet Protocol):
+Endereçamento: Define como os dispositivos são endereçados e identificados na rede (endereços IP).
+Roteamento: Determina como os pacotes são roteados através de várias redes até alcançarem seu destino.
+
+UDP (User Datagram Protocol)
+Definição: UDP é um protocolo de comunicação simples e sem conexão que permite a troca de mensagens (datagramas) entre dispositivos em uma rede.
+Características:
+Sem Conexão: Não estabelece uma conexão antes de enviar dados.
+Baixa Latência: Ideal para aplicações que requerem baixa latência e podem tolerar alguma perda de dados.
+Sem Garantia de Entrega: Não garante a entrega dos pacotes, nem a ordem correta.
+
+HTTP (Hypertext Transfer Protocol)
+Definição: HTTP é um protocolo de aplicação para sistemas de informação distribuídos, colaborativos e hipermídia. É a base da comunicação de dados para a World Wide Web.
+Características:
+Protocolo Stateless: Cada requisição HTTP é independente, sem a necessidade de manter estado entre as requisições.
+Métodos de Requisição: Define métodos como GET, POST, PUT, DELETE, etc., que especificam a ação desejada em um recurso.
+Mensagens: As mensagens HTTP consistem de um cabeçalho e um corpo opcional contendo os dados.
+
+FTP (File Transfer Protocol)
+Definição: Em uma rede de computadores, a transferência de arquivos entre um cliente e um servidor é realizada através do protocolo padrão de rede, conhecido como FTP.
+Características:
+Autenticação: Suporta autenticação de usuário por meio de um nome de usuário e senha.
+Modo Ativo e Passivo: Define modos de operação que determinam como a conexão de dados é estabelecida entre cliente e servidor.
+Transferência de Arquivos: Permite comandos para upload, download, renomear, deletar e listar arquivos no servidor.
+
+SMTP (Simple Mail Transfer Protocol)
+Definição: SMTP é um protocolo de comunicação de e-mails entre servidores de e-mail.
+Características:
+Envio de E-mails: Responsável pelo envio de e-mails de um cliente para um servidor de e-mail ou entre servidores de e-mail.
+Conexão Simples: Utiliza uma conexão simples baseada em texto.
+Servidor de E-mails: Permite que e-mails sejam encaminhados de um servidor para outro até alcançar ao destinatário final.
+
+
+
+
+
+Capítulo Padrões de Projeto e Implementação
+
+Padrão Cliente-Servidor
+Definição: Cliente-Servidor é uma arquitetura de rede onde os clientes se conectam a um servidor a fim de centralizar o acesso dis recursos ou serviços.
+Características:
+Cliente: É quem solicita serviços ou recursos. 
+Servidor: É a entidade que fornece serviços ou recursos.
+Comunicação: A comunicação entre cliente e servidor geralmente ocorre através de uma rede usando protocolos como por exemplo o HTTP
+Funcionamento: o cliente envia uma solicitação para o servidor -> servidor processa a solicitação -> servidor envia uma resposta de volta para o cliente.
+Vantagens:
+Centralização: Facilita a gestão, manutenção e segurança dos dados e serviços.
+Desvantagens:
+Ponto Único de Falha: Se o servidor falhar, todos os clientes ficam sem acesso ao serviço.
+Desempenho: O desempenho pode ser um problema se muitos clientes acessarem o servidor simultaneamente.
+
+
+
+
+
+Padrão Publicador-Subscritor
+Definição: O padrão Publicador-Subscritor (Publish-Subscribe ou Pub-Sub) é uma arquitetura de mensagens onde remetentes de mensagens não enviam mensagens diretamente para destinatários específicos, 
+mas para um sistema intermediário que ai sim as distribui conforme o seu destinatário.
+Características:
+Publicadores: Entidades que geram e enviam mensagens sobre determinados tópicos ou eventos.
+Subscritores: Entidades que expressam interesse em um ou mais tópicos ou eventos e recebem mensagens relevantes.
+Broker: Sistema intermediário que gerencia as assinaturas e entrega as mensagens aos subscritores.
+Funcionamento:
+O publicador envia uma mensagem para um tópico no broker.
+O broker encaminha a mensagem para todos os subscritores desse tópico.
+Vantagens:
+Desacoplamento: Publicadores e subscritores são desacoplados no tempo (não precisam estar ativos simultaneamente) e no espaço (não precisam saber da existência um do outro).
+Escalabilidade: Facilita a adição de novos publicadores e subscritores sem alterar o sistema existente.
+Desvantagens:
+Complexidade de Gestão: Requer gestão do broker e dos tópicos.
+Latência: Pode introduzir latência devido ao processamento intermediário pelo broker.
+
+
+
+
+
+
+Padrão Modelo-Vista-Controlador (MVC)
+Definição: M(odel View Controller) é uma arquitetura de software que separa a aplicação em três componentes: modelo, conteúdo na visao de usuário e o controlador.
+Componentes:
+Modelo: Representa os dados e a lógica de negócio da aplicação.
+Visao do usuário: Representa a interface do usuário.
+Controlador: Interpreta a entrada do usuário e a converte em chamadas para o modelo ou para a vista. Atua como um intermediário entre a vista e o modelo.
+Funcionamento:
+O usuário interage com a vista, controlador captura essa interação e decide o que fazer em resposta, com isso o controlador chama o modelo para realizar uma operação, Após isso o
+modelo executa a operação e retorna os dados ao controlador.
+Vantagens:
+Estrutura: Facilita a manutenção da aplicação, pois separa a lógica de negócio da interface do usuário.
+Desvantagens:
+Complexidade Inicial: De inicio pode haver uma complexidade muito alta devido a um pre conhecimento dos componentes e suas devidas separação de funcionalidade
+Sobrecarregamento do Controlador: O controlador pode sobre carregar caso houver muitas funcionalidades.
+
+
+
+Capítulo Desafios e Considerações de Desempenho
+
+Latência
+Definição: Latencia é o tempo em que uma mensagem ou dado leva para ir de um ponto até outro em uma rede. é o fator principal de desempenho em sistemas distribuidos.
+Largura de Banda
+Definição: É a capacidade que de tamanho em que dados podem ser enviados em uma determinada velocidade
+Escalabilidade
+Definição: É a capacidade de ampliar um sistema de maneira q nao o prejudique ou o comprometa
+
+
+
