@@ -1,0 +1,54 @@
+Resumo sobre Arquiteturas Distribuídas
+1. Arquiteturas Distribuídas vs. Centralizadas
+Centralizadas: Caracterizadas por um único ponto de controle, como em arquiteturas cliente-servidor.
+Distribuídas: Envolvem múltiplos componentes interagindo em diversas máquinas, como em sistemas DDoS.
+Vantagens e Desvantagens:
+Centralizadas: Mais simples de gerenciar, mas com um único ponto de falha.
+Distribuídas: Maior tolerância a falhas e escalabilidade, mas com maior complexidade de comunicação e coordenação.
+2. Número de Processos em Arquiteturas Distribuídas
+Complexidade: É crucial determinar a quantidade de processos necessários para uma arquitetura distribuída funcional.
+Requisitos Mínimos: Discutem-se os mínimos necessários para garantir a eficácia e a eficiência do sistema distribuído.
+3. Protocolos de Comunicação
+Importância: Protocolos são essenciais para permitir a comunicação entre componentes de um sistema distribuído.
+Desafios: Desenvolver e implementar esses protocolos pode ser complexo devido à diversidade dos componentes e infraestruturas.
+4. Desafios de Sistemas Distribuídos
+Heterogeneidade: Sistemas distribuídos frequentemente operam em diferentes sistemas operacionais e infraestruturas.
+Interoperabilidade: Necessidade de protocolos de comunicação robustos para permitir a interação eficaz entre componentes distribuídos.
+5. Soluções Distribuídas e Protocolos de Comunicação
+Desenvolvimento de Soluções: É necessário criar soluções específicas para resolver os problemas de comunicação em sistemas distribuídos.
+Definição de Protocolos: Estabelecer protocolos claros é fundamental para a coordenação e o funcionamento eficiente do sistema.
+Natureza da Comunicação em Sistemas Distribuídos
+1. Conversação entre Processos
+Necessidade de Comunicação: Processos em sistemas distribuídos precisam se comunicar para realizar tarefas.
+Flexibilidade: A comunicação não é predeterminada, podendo ocorrer entre quaisquer processos conforme necessário.
+2. Protocolos e Identificação
+Estabelecimento de Protocolos: Definição de regras e mecanismos de identificação para facilitar a comunicação.
+Rotulação Única: Cada processo ou pedaço de software deve ter uma identificação única para evitar confusões.
+3. Comunicação Ponto a Ponto e Coletiva
+Ponto a Ponto: Comunicação direta entre dois processos.
+Coletiva: Comunicação com um subconjunto de processos, útil para sincronização e coordenação em larga escala.
+Comparação entre Arquiteturas Distribuídas e Centralizadas
+1. Simplicidade vs. Complexidade
+Centralizadas: Mais simples, com menos problemas de comunicação, mas com limitação em escalabilidade e tolerância a falhas.
+Distribuídas: Mais complexas, exigindo soluções robustas para garantir comunicação e coordenação, mas oferecem melhor escalabilidade e redundância.
+2. Desafios e Vantagens
+Desafios: Incluem garantir a tolerância a falhas, escalabilidade, e gestão de concorrência.
+Vantagens: Possibilitam incorporar essas características diretamente nos protocolos de comunicação.
+Abordagens de Comunicação
+1. Mensagens Bloqueantes vs. Não Bloqueantes
+Bloqueantes: O remetente espera até que a mensagem seja entregue, garantindo sincronização, mas podendo causar atrasos.
+Não Bloqueantes: O remetente continua sua execução sem esperar pela entrega da mensagem, melhorando o desempenho, mas introduzindo riscos de condições de corrida.
+2. Condições de Corrida
+Definição: Ocorrem quando processos acessam recursos compartilhados simultaneamente, resultando em resultados inconsistentes.
+Prevenção: Requer mecanismos robustos para sincronização e controle de acesso a recursos compartilhados.
+Estratégias e Ferramentas
+1. Escalabilidade e Tolerância a Falhas
+Importância: Essencial para a eficácia de sistemas distribuídos.
+Exemplos: Arquiteturas como a do iFood que empregam estratégias para garantir a escalabilidade e a tolerância a falhas.
+2. Transações e Replicação de Dados
+Consistência e Integridade: Garantir que os dados sejam consistentes e íntegros através de transações e replicação.
+3. Detecção e Tratamento de Falhas
+Mecanismos: Uso de técnicas como reprocessamento de mensagens e filas de mensagens de erro (DLQ) para garantir a confiabilidade do sistema.
+Conclusão
+Desafios e Soluções: A construção de sistemas distribuídos exige uma compreensão profunda das complexidades de comunicação e coordenação.
+Abordagem Estratégica: Implementar protocolos de comunicação adequados e estratégias de escalabilidade e tolerância a falhas é crucial para o sucesso de sistemas distribuídos.
